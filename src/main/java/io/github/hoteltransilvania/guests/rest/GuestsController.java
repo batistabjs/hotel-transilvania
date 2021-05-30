@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.github.hoteltransilvania.guests.model.Guests;
 import io.github.hoteltransilvania.repository.GuestsRepository;
 
-@CrossOrigin(origins = "http://localhost:8090", maxAge = 3600)
+@CrossOrigin(origins = "https://hotel-transilvania.herokuapp.com/", maxAge = 3600)
 @RestController
 @RequestMapping("/api/guests")
 public class GuestsController {
