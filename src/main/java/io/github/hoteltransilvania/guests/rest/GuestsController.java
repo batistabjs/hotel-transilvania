@@ -41,7 +41,7 @@ public class GuestsController {
 		return repository.findAll();
 	}
 	
-	@GetMapping("search")
+	@PostMapping("search")
 	public List<Guests> getSearch(@RequestBody Guests guest) {
 		if (guest.getNome() != null) {
 			return repository.findGuestsByNameLike(guest.getNome());
