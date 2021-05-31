@@ -1,8 +1,8 @@
 package io.github.hoteltransilvania.guests.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 //em tempo de compilação, o lombok vai gerar nossos getters e setters
