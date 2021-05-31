@@ -12,11 +12,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Guests {
-	
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//private Long id;
-	
+public class Guests {	
 	@Column
 	private String nome;
 	
@@ -25,16 +21,5 @@ public class Guests {
 	private String documento;
 	
 	@Column	
-	private String telefone;	
-	
-	/*@Column	
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	private LocalDateTime data_cadastro;
-	
-	@PrePersist
-	public void beforeSave(){
-		setData_cadastro(LocalDateTime.now());
-		
-	} */
-	
+	private String telefone;		
 }

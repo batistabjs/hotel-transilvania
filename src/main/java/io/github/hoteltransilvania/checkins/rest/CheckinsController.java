@@ -1,5 +1,6 @@
 package io.github.hoteltransilvania.checkins.rest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.hoteltransilvania.checkins.model.Checkins;
-import io.github.hoteltransilvania.guests.model.Guests;
 import io.github.hoteltransilvania.repository.CheckinsRepository;
 
 @CrossOrigin
@@ -29,6 +29,14 @@ public class CheckinsController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Checkins save(@RequestBody Checkins checkins) {
+		//Checkins checkins = new Checkins();
+		checkins.setId(repository.findLastId());//não criei autoincrement no bd, daí fiz essafunção
+		//checkins.setHospede("12345678");
+		//checkins.setDataentrada(LocalDateTime.now());
+		//checkins.setDatasaida(LocalDateTime.now());
+		//checkins.setAdicionalveiculo(true);
+		
+		System.out.println("save obj checkin");
 		return repository.save(checkins);	
 	}
 	
@@ -37,23 +45,21 @@ public class CheckinsController {
 	public void delete(@PathVariable Integer id) {
 		//return repository.deleteById(id);
 	}
-
-	@GetMapping
-	public List<Checkins> getAll() {
-		return repository.findAll();
-	}
 	
-	/*c@GetMapping("search")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@GetMapping//("search")
 	public List<Checkins> getSearch(@RequestBody Checkins checkins) {
-		if (checkins.getNome() != null) {
-			return repository.findGuestsByNameLike(checkins.getNome());
+		
+		//aqui vai a logica pra calcular as datas
+		
+		if (checkins.getHospede() != null) {
+			return repository.findCurrentCheckins();
 		} 
-		else if (checkins.getDocumento() != null) {
-			return repository.findGuestsByDocLike(checkins.getDocumento());
+		else if (checkins.getId() != null) {
+			return repository.findOldCheckins();
 		}
 		else {
-			return repository.findGuestsByTelLike(checkins.getTelefone());
+			System.out.println("entrou no else");
+			return repository.findAll();
 		}
-	}*/
+	}
 }

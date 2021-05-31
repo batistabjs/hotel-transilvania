@@ -32,13 +32,5 @@ public class PricesController {
 				.findAll();	
 				//.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
-	
-	
-	/*@GetMapping("{documento}")
-	public Guests getById(@PathVariable String documento) {
-		return repository
-				.findById(documento)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-	}*/
 }
 
