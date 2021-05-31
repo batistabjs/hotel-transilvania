@@ -1,5 +1,7 @@
 package io.github.hoteltransilvania.prices.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.github.hoteltransilvania.guests.model.Guests;
 import io.github.hoteltransilvania.prices.model.Prices;
 import io.github.hoteltransilvania.repository.PricesRepository;
 
@@ -19,18 +22,10 @@ public class PricesController {
 	@Autowired
 	private PricesRepository repository;
 	
-	@GetMapping("search")
-	public java.util.List<Prices> getSearch(@RequestBody Prices prices) {
-		return repository
-				.findAll();	
-				//.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-	}
-	
 	@GetMapping
-	public java.util.List<Prices> getAll() {
-		return repository
-				.findAll();	
-				//.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+	public List<Prices> getAll() {
+		return repository.findAll();
 	}
+
 }
 

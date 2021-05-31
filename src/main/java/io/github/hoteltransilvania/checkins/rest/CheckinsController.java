@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.hoteltransilvania.checkins.model.Checkins;
+import io.github.hoteltransilvania.guests.model.Guests;
 import io.github.hoteltransilvania.repository.CheckinsRepository;
 
 @CrossOrigin
@@ -46,7 +47,12 @@ public class CheckinsController {
 		//return repository.deleteById(id);
 	}
 	
-	@GetMapping//("search")
+	@GetMapping
+	public List<Checkins> getAll() {
+		return repository.findAll();
+	}
+	
+	@GetMapping("search")
 	public List<Checkins> getSearch(@RequestBody Checkins checkins) {
 		
 		//aqui vai a logica pra calcular as datas
@@ -54,12 +60,8 @@ public class CheckinsController {
 		if (checkins.getHospede() != null) {
 			return repository.findCurrentCheckins();
 		} 
-		else if (checkins.getId() != null) {
+		else{// if (checkins.getId() != null) {
 			return repository.findOldCheckins();
-		}
-		else {
-			System.out.println("entrou no else");
-			return repository.findAll();
 		}
 	}
 }

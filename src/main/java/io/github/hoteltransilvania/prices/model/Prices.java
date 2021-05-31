@@ -18,11 +18,11 @@ public class Prices {
 	private Long id;
 	
 	@Column
-	private String Descricao;
+	private String descricao;
 		
 	@Column
-	private String Tipo;
+	private String tipo;
 	
 	@Column
-	private Float Valor;
+	private Float valor;
 }
