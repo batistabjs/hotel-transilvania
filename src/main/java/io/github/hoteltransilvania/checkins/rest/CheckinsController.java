@@ -43,7 +43,7 @@ public class CheckinsController {
 		return repository.findAll();
 	}
 	
-	@GetMapping("search")
+	/*c@GetMapping("search")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public List<Checkins> getSearch(@RequestBody Checkins checkins) {
 		if (checkins.getNome() != null) {
@@ -55,5 +55,5 @@ public class CheckinsController {
 		else {
 			return repository.findGuestsByTelLike(checkins.getTelefone());
 		}
-	}
+	}*/
 }
