@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.develop.machinecomm.Machinecomm.model.Users;
-
 import io.github.hoteltransilvania.guests.model.Guests;
 import io.github.hoteltransilvania.repository.GuestsRepository;
 import java.util.List;
@@ -43,14 +41,6 @@ public class GuestsController {
 		return repository.findAll();
 	}
 	
-    // Get a Single User
-  /*  @GetMapping("/searchuser/{user}")
-    public List<Users> searchUser(@PathVariable(value = "user") String user) {
-        List<Users> users = userService.searchUser(user);
-
-        return users;
-    }	*/
-	
 	@GetMapping("search")
 	public List<Guests> getSearch(@RequestBody Guests guest) {
 		if (guest.getNome() != null) {
@@ -62,23 +52,5 @@ public class GuestsController {
 		else {
 			return repository.findGuestsByTelLike(guest.getTelefone());
 		}
-		
-		//System.out.print(guest.getDocumento());
-		
-		
-		
-		//return repository.findGuestsByNameLike("33");
-		
-		//return repository.findGuestsByTelLike("33");
 	}
-	
-
-	
-	
-	/*@GetMapping("{documento}")
-	public Guests getById(@PathVariable String documento) {
-		return repository
-				.findById(documento)
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-	}*/
 }
