@@ -25,12 +25,14 @@ caso haja interesse em executar localmente.
 Obs: Pensei em usar o h2 Database para dados usar banco em memória, mas um dos requisitos era Postgres ou Mongo
 
 POSSÍVEIS MELHORIAS:
+Considerar a categoria "finais de semana" no cálculo;
+Implementar @ExceptionHandler Annotation para tratar os erros;
 Migrar o Vuejs para Angular, e deixar tudo em Typescript;
-Ao cadastrar o Checkin, buscar o hóspede diramente no campo hóspede;
 Criar rotas de edição e delete de hóspedes e checkins;
 Criar paginação alterando o objeto da rota Getall para Page, e assim setar os valores "page" e "size";
 Adicionar Autentiação de usuário, habilitando no pom.xml a dependendia oauth2 e criação das rotas para validar o JWT;
-Criação de testes automatizados. 
+Criação de testes automatizados.
+Criação da documentação com o Swagger.
 
 
 

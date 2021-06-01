@@ -16,6 +16,8 @@ import io.github.hoteltransilvania.guests.model.Guests;
 import io.github.hoteltransilvania.repository.GuestsRepository;
 import java.util.List;
 
+import javax.validation.Valid;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/api/guests")
@@ -26,7 +28,7 @@ public class GuestsController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Guests save(@RequestBody Guests guest) {
+	public Guests save(@Valid @RequestBody Guests guest) {
 		return repository.save(guest);	
 	}
 	
