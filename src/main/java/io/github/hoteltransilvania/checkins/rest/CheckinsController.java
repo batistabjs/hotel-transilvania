@@ -20,6 +20,9 @@ import io.github.hoteltransilvania.checkins.model.Checkins;
 import io.github.hoteltransilvania.prices.model.Prices;
 import io.github.hoteltransilvania.repository.CheckinsRepository;
 
+//import java.time.LocalDateTime;
+//import java.time.format.DateTimeFormatter;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/api/checkins")
@@ -31,7 +34,7 @@ public class CheckinsController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Checkins save(@Valid @RequestBody Checkins checkins) {
+	public Checkins save(@Valid @RequestBody Checkins checkins) {			
 		checkins.setId(repository.findLastId());//não criei autoincrement no bd, daí fiz essafunção
 		
 		return repository.save(checkins);	

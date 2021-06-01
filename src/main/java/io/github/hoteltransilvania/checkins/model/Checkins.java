@@ -28,13 +28,13 @@ public class Checkins {
 	private String hospede;
 		
 	@Column(name = "dataentrada")
-	@NotBlank(message = "Data Inicial é obrigatório")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy HH:mm")
+	//@NotBlank(message = "Data Inicial é obrigatório")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime dataentrada;
 	
 	@Column(name = "datasaida")
-	@NotBlank(message = "Data Final é obrigatório")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy HH:mm")
+	//@NotBlank(message = "Data Final é obrigatório")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
 	private LocalDateTime datasaida;	
 	
 	@Column(name = "adicionalveiculo")
