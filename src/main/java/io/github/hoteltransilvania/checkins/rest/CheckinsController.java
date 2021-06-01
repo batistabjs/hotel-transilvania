@@ -50,7 +50,7 @@ public class CheckinsController {
 	
 	@GetMapping("search")
 	public List<Checkins> getSearch(@RequestBody Checkins checkins) {
-		private Integer diarias = repository.findCurrentCheckins() 
+		//private Integer diarias = repository.findCurrentCheckins() 
 		
 		
 		//aqui vai a logica pra calcular as datas
