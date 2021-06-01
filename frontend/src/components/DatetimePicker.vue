@@ -60,7 +60,7 @@
 <script>
 import { format, parse } from 'date-fns'
 const DEFAULT_DATE = ''
-const DEFAULT_TIME = '00:00:00'
+const DEFAULT_TIME = '00:00'
 const DEFAULT_DATE_FORMAT = 'yyyy-MM-dd'
 const DEFAULT_TIME_FORMAT = 'HH:mm:ss'
 const DEFAULT_DIALOG_WIDTH = 340
