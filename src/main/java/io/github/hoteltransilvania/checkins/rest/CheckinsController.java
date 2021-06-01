@@ -46,23 +46,22 @@ public class CheckinsController {
 		//return repository.deleteById(id);
 	}
 	
-	@GetMapping
+	@GetMapping("searchall")
 	public List<Checkins> getAll() {
+		//aqui tratar calculos de diárias obtidos da Query do cálculo das diárias
+		//será uma só rota para os 3 possibilidades (listar todos, presentes, antigos).
+		
 		return repository.findAll();
 	}
 	
-	@GetMapping("search")
-	public List<Checkins> getSearch(@RequestBody Checkins checkins) {
-		//private Integer diarias = repository.findCurrentCheckins() 
-		
-		
-		//aqui vai a logica pra calcular as datas
-		
-		if (checkins.getHospede() != null) {
-			return repository.findCurrentCheckins();
-		} 
-		else{// if (checkins.getId() != null) {
-			return repository.findOldCheckins();
-		}
+	@GetMapping("searchold")
+	public List<Checkins> getSearchOld() {
+		return repository.findOldCheckins();
 	}
+	
+	@GetMapping("searchcurrent")
+	public List<Checkins> getSearchCurrent() {
+		return repository.findCurrentCheckins();
+	}
+	
 }
