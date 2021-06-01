@@ -1,6 +1,7 @@
 package io.github.hoteltransilvania.checkins.rest;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
 
@@ -29,7 +30,7 @@ import io.github.hoteltransilvania.repository.CheckinsRepository;
 public class CheckinsController {
 	
 	@Autowired
-	private CheckinsRepository repository;
+	private CheckinsRepository repository;	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Checkins save(@Valid @RequestBody Checkins checkins) {			
@@ -44,22 +45,25 @@ public class CheckinsController {
 		//return repository.deleteById(id);
 	}
 	
-	@GetMapping("searchall")
+	@GetMapping
 	public List<Checkins> getAll() {
-		//aqui tratar calculos de diárias obtidos da Query do cálculo das diárias
-		//será uma só rota para os 3 possibilidades (listar todos, presentes, antigos).
-		
 		return repository.findAll();
 	}
-	
-	@GetMapping("searchold")
-	public List<Checkins> getSearchOld() {
-		return repository.findOldCheckins();
-	}
-	
-	@GetMapping("searchcurrent")
-	public List<Checkins> getSearchCurrent() {
-		return repository.findCurrentCheckins();
+
+	@GetMapping("{search}")
+	public List<Checkins> getSearch(@PathVariable String search) {
+		//aqui tratar calculos de diárias obtidos da Query do cálculo das diárias
+		//será uma só rota para os 3 possibilidades (listar todos, presentes, antigos).
+
+		if (Objects.equals(search, "searchcurrent")) {
+			return repository.findCurrentCheckins();
+		} 
+		else if (Objects.equals(search, "searchold")) {
+			return repository.findOldCheckins();
+		}
+
+		return repository.findAll();
+
 	}
 	
 }
