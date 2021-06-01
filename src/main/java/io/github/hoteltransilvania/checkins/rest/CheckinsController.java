@@ -30,8 +30,6 @@ public class CheckinsController {
 	
 	@Autowired
 	private CheckinsRepository repository;
-	//private Prices prices;
-	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Checkins save(@Valid @RequestBody Checkins checkins) {			
